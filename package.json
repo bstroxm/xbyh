@@ -1,0 +1,19 @@
+{
+  "name": "xbyh",
+  "version": "1.0.0",
+  "description": "xbyh weapp",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bstroxm",
+  "license": "ISC",
+  "dependencies": {
+    "luch-request": "^3.0.5",
+    "uview-ui": "^1.8.4"
+  },
+  "devDependencies": {
+    "node-sass": "^5.0.0",
+    "sass-loader": "^11.0.1"
+  }
+}

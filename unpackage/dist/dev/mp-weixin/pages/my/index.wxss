@@ -1,0 +1,33 @@
+@charset "UTF-8";
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+page {
+  background-color: #f8f8f8;
+}
+.user-box {
+  background-color: #fff;
+  border-radius: 8rpx;
+}
+.tips-wrapper {
+  height: 54rpx;
+}
+.btn-wrapper {
+  width: 100%;
+  text-align: center;
+  bottom: 220rpx;
+}
+.btn-wrapper .u-hairline-border:after {
+  border: 1px solid #d6d6d6 !important;
+}
+

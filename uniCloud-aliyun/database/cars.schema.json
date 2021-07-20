@@ -1,0 +1,98 @@
+{
+  "bsonType": "object",
+  "required": [],
+  "permission": {
+    "read": true,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "_dcd_id": {
+      "title": "在懂车帝APP中对应的id",
+      "bsonType": "string",
+      "description": "在懂车帝APP中对应的id"
+    },
+    "car_name": {
+      "title": "车辆名称",
+      "bsonType": "string",
+      "description": "车辆名称",
+      "trim": "both"
+    },
+    "car_year": {
+      "title": "车辆年份",
+      "bsonType": "string",
+      "description": "车辆年份",
+      "trim": "both"
+    },
+    "dealer_price_value": {
+      "title": "经销商报价",
+      "bsonType": "string",
+      "description": "经销商报价 - 单位为W"
+    },
+    "dealer_price": {
+      "title": "经销商报价",
+      "bsonType": "string",
+      "description": "经销商报价，字符串"
+    },
+    "official_price": {
+      "title": "官方指导价",
+      "bsonType": "string",
+      "description": "官方指导价"
+    },
+    "custom_properties": {
+      "title": "车辆属性",
+      "bsonType": "array",
+      "description": "车辆属性",
+      "arrayType": "object",
+      "properties": {
+        "key": {
+          "title": "属性key",
+          "bsonType": "string",
+          "description": "属性key"
+        },
+        "text": {
+          "title": "属性文本",
+          "bsonType": "string",
+          "description": "属性文本"
+        },
+        "value": {
+          "title": "属性值",
+          "bsonType": "string",
+          "description": "属性值"
+        }
+      }
+    },
+    "brand_id": {
+      "title": "车辆所属品牌Id",
+      "bsonType": "string",
+      "description": "车辆所属品牌Id"
+    },
+    "series_id": {
+      "title": "车辆所属系列Id",
+      "bsonType": "string",
+      "description": "车辆所属系列Id"
+    },
+    "is_show": {
+      "title": "是否显示",
+      "bsonType": "bool",
+      "description": "是否显示"
+    },
+    "created_time": {
+      "title": "创建时间",
+      "bsonType": "timestamp",
+      "description": "创建时间"
+    },
+    "updated_time": {
+      "title": "更新时间",
+      "bsonType": "timestamp",
+      "description": "更新时间",
+      "forceDefaultValue": {
+        "$env": "now"
+      }
+    }
+  }
+}

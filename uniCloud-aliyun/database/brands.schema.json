@@ -1,0 +1,60 @@
+{
+  "bsonType": "object",
+  "required": [],
+  "permission": {
+    "read": true,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "_dcd_id": {
+      "title": "在懂车帝APP中对应的id",
+      "bsonType": "string",
+      "description": "在懂车帝APP中对应的id"
+    },
+    "brand_name": {
+      "title": "品牌名称",
+      "bsonType": "string",
+      "description": "车辆品牌名称",
+      "trim": "both"
+    },
+    "brand_logo": {
+      "title": "品牌Logo地址",
+      "bsonType": "string",
+      "description": "车辆品牌Logo地址"
+    },
+    "sort": {
+      "title": "排序字段",
+      "bsonType": "int",
+      "description": "排序字段"
+    },
+    "alphabetic": {
+      "title": "品牌拼音首字母",
+      "bsonType": "string",
+      "description": "品牌拼音首字母",
+      "trim": "both"
+    },
+    "is_show": {
+      "title": "是否显示",
+      "bsonType": "bool",
+      "description": "是否显示"
+    },
+    "created_time": {
+      "title": "创建时间",
+      "bsonType": "timestamp",
+      "description": "创建时间"
+    },
+    "updated_time": {
+      "title": "更新时间",
+      "bsonType": "timestamp",
+      "description": "更新时间",
+      "forceDefaultValue": {
+        "$env": "now"
+      }
+    }
+  }
+}

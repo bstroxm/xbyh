@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/my/index",
+    "pages/add-remember/index",
+    "pages/bai-space/index",
+    "pages/cost/index",
+    "pages/fuel-consumption/index",
+    "pages/login/index"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationStyle": "default",
+    "navigationBarBackgroundColor": "#2979ff",
+    "backgroundColor": "#2979ff"
+  },
+  "tabBar": {
+    "color": "#909399",
+    "selectedColor": "#303133",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/fuel-consumption/index",
+        "text": "油耗"
+      },
+      {
+        "pagePath": "pages/add-remember/index",
+        "text": "记一笔"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}
