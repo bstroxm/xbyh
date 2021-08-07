@@ -2,50 +2,6 @@
   "easycom": {
     "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
   },
-  "pages": [
-    {
-      "path": "pages/my/index",
-      "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
-      }
-    },
-    {
-      "path": "pages/add-remember/index",
-      "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
-      }
-    },
-    {
-      "path": "pages/bai-space/index",
-      "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
-      }
-    },
-    {
-      "path": "pages/cost/index",
-      "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
-      }
-    },
-    {
-      "path": "pages/fuel-consumption/index",
-      "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
-      }
-    },
-    {
-      "path": "pages/login/index",
-      "style": {
-        "navigationBarTitleText": "登录",
-        "enablePullDownRefresh": false
-      }
-    }
-  ],
   "globalStyle": {
     "navigationStyle": "default",
     "navigationBarBackgroundColor": "#2979ff",
@@ -58,17 +14,89 @@
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/fuel-consumption/index",
+        "pagePath": "pages/application/fuel-consumption/index",
         "text": "油耗"
       },
       {
-        "pagePath": "pages/add-remember/index",
+        "pagePath": "pages/data-collect/add-remember/index",
         "text": "记一笔"
       },
       {
-        "pagePath": "pages/my/index",
+        "pagePath": "pages/account/my/index",
         "text": "我的"
       }
     ]
-  }
+  },
+  "pages": [
+    {
+      "path": "pages/account/my/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/account/login/index",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/data-collect/add-car/index",
+      "style": {
+        "navigationBarTitleText": "新增车辆",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/data-collect/add-remember/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/application/bai-space/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/application/cost/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/application/fuel-consumption/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/selector/brand/index",
+      "style": {
+        "navigationBarTitleText": "品牌",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/selector/series/index",
+      "style": {
+        "navigationBarTitleText": "车系",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/selector/car/index",
+      "style": {
+        "navigationBarTitleText": "车型",
+        "enablePullDownRefresh": false
+      }
+    }
+  ]
 }

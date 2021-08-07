@@ -1,1 +1,0 @@
-<view>啊但是大<u-tabbar vue-id="17a3d874-1" list="{{tabbarList}}" mid-button="{{true}}" active-color="{{defaultColor.primary.common}}" bind:__l="__l"></u-tabbar></view>

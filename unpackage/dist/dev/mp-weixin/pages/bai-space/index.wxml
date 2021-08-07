@@ -1,1 +1,0 @@
-<view>坎坎坷坷<u-tabbar vue-id="b78c146e-1" list="{{tabbarList}}" mid-button="{{true}}" active-color="{{defaultColor.primary.common}}" bind:__l="__l"></u-tabbar></view>

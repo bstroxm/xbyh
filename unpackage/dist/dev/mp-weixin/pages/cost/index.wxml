@@ -1,1 +1,0 @@
-<view>噢噢噢噢<u-tabbar vue-id="139328dd-1" list="{{tabbarList}}" mid-button="{{true}}" active-color="{{defaultColor.primary.common}}" bind:__l="__l"></u-tabbar></view>
