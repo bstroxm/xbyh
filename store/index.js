@@ -10,8 +10,8 @@ const store = new Vuex.Store({
     tabbarList: [
       {
         pagePath: '/pages/application/fuel-consumption/index',
-        iconPath: 'drip',
-        selectedIconPath: 'drip-fill',
+        iconPath: 'oil',
+        selectedIconPath: 'oil-fill',
         text: '油耗',
         customIcon: true
       },
@@ -32,8 +32,8 @@ const store = new Vuex.Store({
       },
       // {
       //   pagePath: '/pages/application/bai-space/index',
-      //   iconPath: 'space',
-      //   selectedIconPath: 'space-fill',
+      //   iconPath: '',
+      //   selectedIconPath: '',
       //   text: '空间',
       //   customIcon: true
       // },

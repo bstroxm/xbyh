@@ -1,8 +1,8 @@
 @font-face {
-  font-family: "custom-icon"; /* Project id 2524428 */
-  src: url('/static/font-icon/iconfont.woff2?t=1620005377968') format('woff2'),
-       url('/static/font-icon/iconfont.woff?t=1620005377968') format('woff'),
-       url('/static/font-icon/iconfont.ttf?t=1620005377968') format('truetype');
+  font-family: "custom-icon"; /* Project id 2756992 */
+  src: url('/static/font-icon/iconfont.woff2?t=1629534537179') format('woff2'),
+       url('/static/font-icon/iconfont.woff?t=1629534537179') format('woff'),
+       url('/static/font-icon/iconfont.ttf?t=1629534537179') format('truetype');
 }
 
 .custom-icon {
@@ -13,19 +13,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.custom-icon-drip:before {
-  content: "\e916";
+.custom-icon-add:before {
+  content: "\e60d";
 }
 
-.custom-icon-drip-fill:before {
-  content: "\e917";
+.custom-icon-car:before {
+  content: "\e609";
 }
 
-.custom-icon-space-fill:before {
-  content: "\e918";
+.custom-icon-oil-fill:before {
+  content: "\e60c";
 }
 
-.custom-icon-space:before {
-  content: "\e603";
+.custom-icon-oil:before {
+  content: "\e60f";
 }
 

@@ -46,7 +46,7 @@
 export { default } from './index'
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 page {
   background-color: $uni-bg-color-grey;
 }

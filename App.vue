@@ -31,4 +31,10 @@ export default {
 /* 注意要写在第一行，同时给style标签加入lang="scss"属性 */
 @import 'uview-ui/index.scss';
 @import '/static/font-icon/iconfont.css';
+
+// #ifdef MP-WEIXIN
+.u-tabbar__content__item__text {
+  bottom: 0px !important;
+}
+// #endif
 </style>

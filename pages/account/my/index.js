@@ -19,7 +19,7 @@ export default {
       uni.navigateTo({ url: '/pages/account/login/index' })
     },
     handleGoAddCars() {
-      uni.navigateTo({ url: '/pages/selector/brand/index' })
+      uni.navigateTo({ url: '/pages/data-collect/add-car/index' })
     },
     async handleLogout() {
       const status = await this.$uc.logout()

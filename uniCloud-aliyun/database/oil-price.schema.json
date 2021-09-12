@@ -1,0 +1,129 @@
+{
+  "bsonType": "object",
+  "required": [],
+  "permission": {
+    "read": true,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "is_latest": {
+      "title": "是否是最新值",
+      "bsonType": "boolean",
+      "description": "是否是最新值"
+    },
+    "update_year": {
+      "title": "油价更新年份",
+      "bsonType": "number",
+      "description": "油价更新年份"
+    },
+    "update_month": {
+      "title": "油价更新月份",
+      "bsonType": "number",
+      "description": "油价更新月份"
+    },
+    "update_day": {
+      "title": "油价更新日",
+      "bsonType": "number",
+      "description": "油价更新日"
+    },
+    "update_at": {
+      "title": "油价更新时间字符串",
+      "bsonType": "string",
+      "description": "油价更新时间字符串",
+      "trim": "both"
+    },
+    "updated_time": {
+      "title": "油价更新时间",
+      "bsonType": "timestamp",
+      "description": "油价更新时间"
+    },
+    "province": {
+      "title": "省份",
+      "bsonType": "string",
+      "description": "省份",
+      "trim": "both"
+    },
+    "province_pinyin": {
+      "title": "省份拼音",
+      "bsonType": "string",
+      "description": "省份拼音",
+      "trim": "both"
+    },
+    "oil_price": {
+      "bsonType": "object",
+      "title": "油价",
+      "description": "油价",
+      "properties": {
+        "current": {
+          "bsonType": "object",
+          "title": "当前油价",
+          "description": "当前油价",
+          "properties": {
+            "0": {
+              "title": "0号汽油",
+              "bsonType": "number",
+              "description": "0号汽油"
+            },
+            "89": {
+              "title": "89号汽油",
+              "bsonType": "number",
+              "description": "89号汽油"
+            },
+            "92": {
+              "title": "92号汽油",
+              "bsonType": "number",
+              "description": "92号汽油"
+            },
+            "95": {
+              "title": "95号汽油",
+              "bsonType": "number",
+              "description": "95号汽油"
+            },
+            "98": {
+              "title": "98号汽油",
+              "bsonType": "number",
+              "description": "98号汽油"
+            }
+          }
+        },
+        "previous": {
+          "bsonType": "object",
+          "title": "调价前的油价",
+          "description": "调价前的油价",
+          "properties": {
+            "0": {
+              "title": "0号汽油",
+              "bsonType": "number",
+              "description": "0号汽油"
+            },
+            "89": {
+              "title": "89号汽油",
+              "bsonType": "number",
+              "description": "89号汽油"
+            },
+            "92": {
+              "title": "92号汽油",
+              "bsonType": "number",
+              "description": "92号汽油"
+            },
+            "95": {
+              "title": "95号汽油",
+              "bsonType": "number",
+              "description": "95号汽油"
+            },
+            "98": {
+              "title": "98号汽油",
+              "bsonType": "number",
+              "description": "98号汽油"
+            }
+          }
+        }
+      }
+    }
+  }
+}

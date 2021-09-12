@@ -46,7 +46,7 @@
 export { default } from './index'
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 page {
   background-color: $uni-bg-color-grey;
 }
@@ -59,6 +59,7 @@ page {
   white-space: nowrap;
 
   .u-tag {
+    display: inline-block;
     padding: 8rpx 16rpx;
     margin-right: 20rpx;
 
