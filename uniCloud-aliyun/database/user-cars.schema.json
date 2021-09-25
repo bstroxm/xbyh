@@ -1,0 +1,178 @@
+{
+  "bsonType": "object",
+  "required": [],
+  "permission": {
+    "read": "auth.uid == doc.user_id",
+    "create": "auth.uid != null",
+    "update": "auth.uid == doc.user_id",
+    "delete": "auth.uid == doc.user_id"
+  },
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "user_id": {
+      "title": "用户ID",
+      "bsonType": "string",
+      "description": "用户ID",
+      "forceDefaultValue": {
+        "$env": "uid"
+      }
+    },
+    "nickname": {
+      "title": "车辆昵称",
+      "bsonType": "string",
+      "description": "车辆昵称",
+      "trim": "both"
+    },
+    "brand_id": {
+      "title": "车辆所属品牌Id",
+      "bsonType": "string",
+      "description": "车辆所属品牌Id",
+      "foreignKey": "brands._id"
+    },
+    "series_id": {
+      "title": "车辆所属系列Id",
+      "bsonType": "string",
+      "description": "车辆所属系列Id",
+      "foreignKey": "series._id"
+    },
+    "car_id": {
+      "title": "车辆所属车型Id",
+      "bsonType": "string",
+      "description": "车辆所属车型Id",
+      "foreignKey": "cars._id"
+    },
+    "purchase_source": {
+      "title": "车辆来源",
+      "bsonType": "string",
+      "description": "车辆来源",
+      "enum": ["new", "second-hand"]
+    },
+    "purchase_date": {
+      "title": "提车时间",
+      "bsonType": "object",
+      "description": "提车时间",
+      "properties": {
+        "result": {
+          "title": "提车时间字符串",
+          "bsonType": "string",
+          "description": "提车时间字符串",
+          "trim": "both"
+        },
+        "year": {
+          "title": "提车年份",
+          "bsonType": "int",
+          "description": "提车年份"
+        },
+        "month": {
+          "title": "提车月份",
+          "bsonType": "int",
+          "description": "提车月份"
+        },
+        "day": {
+          "title": "提车日期",
+          "bsonType": "int",
+          "description": "提车日期"
+        }
+      }
+    },
+    "purchase_loc": {
+      "title": "提车地点",
+      "bsonType": "object",
+      "description": "提车地点",
+      "properties": {
+        "name": {
+          "title": "提车地点名称",
+          "bsonType": "string",
+          "description": "提车地点名称",
+          "trim": "both"
+        },
+        "address": {
+          "title": "提车地址",
+          "bsonType": "string",
+          "description": "提车地址",
+          "trim": "both"
+        },
+        "latitude": {
+          "title": "提车地点维度",
+          "bsonType": "string",
+          "description": "提车地点维度",
+          "trim": "both"
+        },
+        "longitude": {
+          "title": "提车地点经度",
+          "bsonType": "string",
+          "description": "提车地点经度",
+          "trim": "both"
+        }
+      }
+    },
+    "purchase_price": {
+      "title": "提车价格",
+      "bsonType": "object",
+      "description": "提车价格",
+      "properties": {
+        "purchase_method": {
+          "title": "付款方式",
+          "bsonType": "string",
+          "description": "付款方式",
+          "enum": ["full-amount", "credit"]
+        },
+        "result": {
+          "title": "提车总价格",
+          "bsonType": "string",
+          "description": "提车总价格"
+        },
+        "price": {
+          "title": "车价",
+          "bsonType": "string",
+          "description": "车价"
+        },
+        "tax": {
+          "title": "购置税",
+          "bsonType": "string",
+          "description": "购置税"
+        },
+        "insurance": {
+          "title": "保险费",
+          "bsonType": "string",
+          "description": "保险费"
+        },
+        "license_fee": {
+          "title": "上牌费",
+          "bsonType": "string",
+          "description": "上牌费"
+        },
+        "decorate": {
+          "title": "装潢费",
+          "bsonType": "string",
+          "description": "装潢费"
+        },
+        "service": {
+          "title": "服务费",
+          "bsonType": "string",
+          "description": "服务费"
+        },
+        "other": {
+          "title": "其他费用",
+          "bsonType": "string",
+          "description": "其他费用"
+        }
+      }
+    },
+    "created_time": {
+      "title": "创建时间",
+      "bsonType": "timestamp",
+      "description": "创建时间"
+    },
+    "updated_time": {
+      "title": "更新时间",
+      "bsonType": "timestamp",
+      "description": "更新时间",
+      "forceDefaultValue": {
+        "$env": "now"
+      }
+    }
+  }
+}

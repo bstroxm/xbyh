@@ -1,15 +1,10 @@
 const COLLECTION_BRANDS = 'brands'
 const COLLECTION_SERIES = 'series'
 const COLLECTION_CARS = 'cars'
-
+const COLLECTION_USER_CARS = 'user-cars'
 class Db {
   constructor() {
-    // super()
-
     this.db = uniCloud.database()
-    this.brandsIns = this.db.collection(COLLECTION_BRANDS)
-    this.seriesIns = this.db.collection(COLLECTION_SERIES)
-    this.carsIns = this.db.collection(COLLECTION_CARS)
   }
 
   _loopGet = async (givedJQL, page = 0, limit = 500) => {
@@ -32,16 +27,52 @@ class Db {
     return result
   }
 
-  getBrandList = () => {
-    return this._loopGet(this.brandsIns)
+  getAllBrandList = () => {
+    return this._loopGet(this.db.collection(COLLECTION_BRANDS))
   }
 
-  getSeriesListByBrand = brandId => {
-    return this._loopGet(this.seriesIns.where({ brand_id: brandId }))
+  getAllSeriesListByBrand = brandId => {
+    return this._loopGet(this.db.collection(COLLECTION_SERIES).where({ brand_id: brandId }))
   }
 
-  getCarListBySeries = seriesId => {
-    return this._loopGet(this.carsIns.where({ series_id: seriesId }))
+  getAllCarListBySeries = seriesId => {
+    return this._loopGet(this.db.collection(COLLECTION_CARS).where({ series_id: seriesId }))
+  }
+
+  createUserCar = values => {
+    return this.db.collection(COLLECTION_USER_CARS).add(values)
+  }
+
+  getUserCars = () => {
+    return this.db
+      .collection(`${COLLECTION_USER_CARS}, ${COLLECTION_BRANDS}, ${COLLECTION_SERIES}, ${COLLECTION_CARS}`)
+      .where('user_id == $cloudEnv_uid')
+      .get()
+      .then(({ result: { data } }) => {
+        if (data?.length) {
+          return data.map(d => {
+            if (d?.brand_id?.length) {
+              d.brand = d.brand_id[0]
+              delete d.brand_id
+            }
+            if (d?.series_id?.length) {
+              d.series = d.series_id[0]
+              delete d.series_id
+            }
+            if (d?.car_id?.length) {
+              d.car = d.car_id[0]
+              delete d.car_id
+            }
+            return d
+          })
+        }
+
+        return []
+      })
+      .catch(err => {
+        console.error(err)
+        return Promise.resolve([])
+      })
   }
 }
 

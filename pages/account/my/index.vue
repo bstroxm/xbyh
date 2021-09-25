@@ -12,10 +12,11 @@
       <view class="u-m-l-10 u-p-10"><u-icon name="arrow-right" color="#969799" size="28"></u-icon></view>
     </view>
 
-    <u-card :title="'我的服务'" :border="false" :head-border-bottom="false" :border-radius="'8'"><view class="" slot="body"></view></u-card>
+    <!-- <u-card :title="'我的服务'" :border="false" :head-border-bottom="false" :border-radius="'8'"><view class="" slot="body"></view></u-card> -->
+
     <view class="u-m-t-20">
       <u-cell-group>
-        <u-cell-item icon="star" title="车辆管理" @click="handleGoAddCars"></u-cell-item>
+        <u-cell-item icon="star" title="车辆管理" @click="handleGoMyCars"></u-cell-item>
         <!-- <u-cell-item icon="photo" title="备份恢复"></u-cell-item>
         <u-cell-item icon="coupon" title="卡券"></u-cell-item>
         <u-cell-item icon="heart" title="关注"></u-cell-item> -->

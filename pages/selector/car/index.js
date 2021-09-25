@@ -1,6 +1,6 @@
-import { NAVIGATE_EVENT_CHANNEL } from '@/constants/index'
+import { mapState, mapMutations } from 'vuex'
 
-let selectorSource = {}
+let sourceForm = {}
 export default {
   name: 'selector-car',
   data() {
@@ -15,24 +15,17 @@ export default {
     }
   },
   onLoad: function (option) {
-    console.log(option)
-    const _self = this
-    const eventChannel = this.getOpenerEventChannel()
-    // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
-    eventChannel.on(NAVIGATE_EVENT_CHANNEL.SELECTED_SERIES, function ({ brand, series, selectorSource }) {
-      if (selectorSource) {
-        selectorSource = selectorSource
-      }
-      if (brand) {
-        _self.selectedBrand = Object.assign({}, _self.selectedBrand, brand)
-      }
-      if (series) {
-        _self.selectedSeries = Object.assign({}, _self.selectedSeries, series)
-        setTimeout(() => {
-          _self.getCars()
-        })
-      }
-    })
+    sourceForm = this.$store.state.addCar.sourceForm
+
+    if (sourceForm.brand) {
+      this.selectedBrand = Object.assign({}, this.selectedBrand, sourceForm.brand)
+    }
+
+    if (sourceForm.series) {
+      this.selectedSeries = Object.assign({}, this.selectedSeries, sourceForm.series)
+    }
+
+    this.getCars()
   },
   computed: {
     brandId: function () {
@@ -40,17 +33,37 @@ export default {
     },
     seriesId: function () {
       return this.selectedSeries._id
+    },
+    indexOffsetTop: function () {
+      // #ifdef MP-WEIXIN
+      return 70
+      // #endif
+      // #ifndef MP-WEIXIN
+      return 156
+      // #endif
     }
   },
   methods: {
+    ...mapMutations(['storeUpdateSourceForm']),
     handleScroll(e) {
       this.scrollTop = e.detail.scrollTop
     },
     getCars() {
-      this.$db.getCarListBySeries(this.seriesId).then(cars => {
+      this.$db.getAllCarListBySeries(this.seriesId).then(cars => {
         let carMap = {}
         cars.forEach(c => {
           if (!c.is_show) {
+            if (c.custom_properties) {
+              const cpMap = {}
+              c.custom_properties.forEach(cp => {
+                cpMap[cp.key] = {
+                  value: cp.value,
+                  text: cp.text
+                }
+              })
+
+              c._cp = cpMap
+            }
             if (c.car_year) {
               if (carMap[c.car_year]?.list) {
                 carMap[c.car_year].list.push(c)
@@ -78,23 +91,11 @@ export default {
       }
     },
     handleChooseCar(car) {
-      uni.navigateTo({
-        url: selectorSource.url,
-        events: {
-          // // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
-          // acceptDataFromOpenedPage: function(data) {
-          //   console.log(data)
-          // }
-        },
-        success: function (res) {
-          // 通过eventChannel向被打开页面传送数据
-          res.eventChannel.emit(NAVIGATE_EVENT_CHANNEL.SELECTED_CAR, {
-            brand: this.selectedBrand,
-            series: this.selectedSeries,
-            car
-          })
-        }
-      })
+      if (sourceForm) {
+        sourceForm.car = car
+      }
+      this.storeUpdateSourceForm(sourceForm)
+      uni.navigateBack({ delta: 3 })
     }
   }
 }

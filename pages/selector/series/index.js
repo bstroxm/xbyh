@@ -1,6 +1,6 @@
-import { NAVIGATE_EVENT_CHANNEL } from '@/constants/index'
+import { mapState, mapMutations } from 'vuex'
 
-let selectorSource = {}
+let sourceForm = {}
 export default {
   name: 'selector-series',
   data() {
@@ -14,21 +14,13 @@ export default {
     }
   },
   onLoad: function (option) {
-    console.log(option)
-    const _self = this
-    const eventChannel = this.getOpenerEventChannel()
-    // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
-    eventChannel.on(NAVIGATE_EVENT_CHANNEL.SELECTED_BRAND, function ({ brand, selectorSource }) {
-      if (selectorSource) {
-        selectorSource = selectorSource
-      }
-      if (brand) {
-        _self.selectedBrand = Object.assign({}, _self.selectedBrand, brand)
-        setTimeout(() => {
-          _self.getSeires()
-        })
-      }
-    })
+    sourceForm = this.$store.state.addCar.sourceForm
+
+    if (sourceForm.brand) {
+      this.selectedBrand = Object.assign({}, this.selectedBrand, sourceForm.brand)
+    }
+
+    this.getSeires()
   },
   // created() {
   //   this.getSeires()
@@ -36,14 +28,23 @@ export default {
   computed: {
     brandId: function () {
       return this.selectedBrand._id
+    },
+    indexOffsetTop: function () {
+      // #ifdef MP-WEIXIN
+      return 70
+      // #endif
+      // #ifndef MP-WEIXIN
+      return 156
+      // #endif
     }
   },
   methods: {
+    ...mapMutations(['storeUpdateSourceForm']),
     handleScroll(e) {
       this.scrollTop = e.detail.scrollTop
     },
     getSeires() {
-      this.$db.getSeriesListByBrand(this.brandId).then(series => {
+      this.$db.getAllSeriesListByBrand(this.brandId).then(series => {
         let seriesMap = {}
         series.forEach(s => {
           if (s.is_show) {
@@ -74,23 +75,11 @@ export default {
       }
     },
     handleChooseSeries(series) {
-      uni.navigateTo({
-        url: '/pages/selector/car/index',
-        events: {
-          // // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
-          // acceptDataFromOpenedPage: function(data) {
-          //   console.log(data)
-          // }
-        },
-        success: function (res) {
-          // 通过eventChannel向被打开页面传送数据
-          res.eventChannel.emit(NAVIGATE_EVENT_CHANNEL.SELECTED_SERIES, {
-            brand: this.selectedBrand,
-            selectorSource,
-            series
-          })
-        }
-      })
+      if (sourceForm) {
+        sourceForm.series = series
+      }
+      this.storeUpdateSourceForm(sourceForm)
+      uni.navigateTo({ url: '/pages/selector/car/index' })
     }
   }
 }

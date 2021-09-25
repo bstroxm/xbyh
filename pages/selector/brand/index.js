@@ -1,6 +1,6 @@
-import { NAVIGATE_EVENT_CHANNEL } from '@/constants/index'
+import { mapState, mapMutations } from 'vuex'
 
-let selectorSource = {}
+let sourceForm = {}
 export default {
   name: 'selector-brand',
   data() {
@@ -11,14 +11,7 @@ export default {
     }
   },
   onLoad: function (option) {
-    const _self = this
-    const eventChannel = this.getOpenerEventChannel()
-    // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
-    eventChannel.on(NAVIGATE_EVENT_CHANNEL.TO_SELECTOR, function (selectorSource) {
-      if (selectorSource) {
-        selectorSource = selectorSource
-      }
-    })
+    sourceForm = this.$store.state.addCar.sourceForm
   },
   created() {
     this.getBrands()
@@ -27,8 +20,9 @@ export default {
     this.scrollTop = e.scrollTop
   },
   methods: {
+    ...mapMutations(['storeUpdateSourceForm']),
     getBrands() {
-      this.$db.getBrandList().then(brands => {
+      this.$db.getAllBrandList().then(brands => {
         let brandList = []
         brands.forEach(brand => {
           if (brand.alphabetic) {
@@ -57,19 +51,11 @@ export default {
       })
     },
     handleChooseBrand(brand) {
-      uni.navigateTo({
-        url: '/pages/selector/series/index',
-        events: {
-          // // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
-          // acceptDataFromOpenedPage: function(data) {
-          //   console.log(data)
-          // }
-        },
-        success: function (res) {
-          // 通过eventChannel向被打开页面传送数据
-          res.eventChannel.emit(NAVIGATE_EVENT_CHANNEL.SELECTED_BRAND, { brand, selectorSource })
-        }
-      })
+      if (sourceForm) {
+        sourceForm.brand = brand
+      }
+      this.storeUpdateSourceForm(sourceForm)
+      uni.navigateTo({ url: '/pages/selector/series/index' })
     }
   }
 }

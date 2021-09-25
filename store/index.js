@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import user from './modules/user'
+import addCar from './modules/add-car'
+import userCars from './modules/user-cars'
 
 Vue.use(Vuex)
 
@@ -57,7 +59,7 @@ const store = new Vuex.Store({
   mutations: {},
   getters: {},
   actions: {},
-  modules: { user }
+  modules: { user, addCar, userCars }
 })
 
 export default store

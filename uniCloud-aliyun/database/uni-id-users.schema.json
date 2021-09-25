@@ -33,7 +33,8 @@
       "title": "性别",
       "description": "用户性别：0 未知 1 男性 2 女性",
       "defaultValue": 0,
-      "enum": [{
+      "enum": [
+        {
           "text": "未知",
           "value": 0
         },
@@ -52,7 +53,8 @@
       "description": "用户状态：0 正常 1 禁用 2 审核中 3 审核拒绝",
       "title": "用户状态",
       "defaultValue": 0,
-      "enum": [{
+      "enum": [
+        {
           "text": "正常",
           "value": 0
         },
@@ -82,7 +84,8 @@
       "description": "手机号验证状态：0 未验证 1 已验证",
       "title": "手机号验证状态",
       "defaultValue": 0,
-      "enum": [{
+      "enum": [
+        {
           "text": "未验证",
           "value": 0
         },
@@ -104,7 +107,8 @@
       "description": "邮箱验证状态：0 未验证 1 已验证",
       "title": "邮箱验证状态",
       "defaultValue": 0,
-      "enum": [{
+      "enum": [
+        {
           "text": "未验证",
           "value": 0
         },
@@ -136,6 +140,12 @@
       "bsonType": "string",
       "title": "城市",
       "description": "城市",
+      "trim": "both"
+    },
+    "current_car_id": {
+      "bsonType": "string",
+      "title": "当前使用的车辆ID",
+      "description": "当前使用的车辆ID",
       "trim": "both"
     },
     "role": {

@@ -1,4 +1,5 @@
 import { STORAGE } from '@/constants/index.js'
+import { checkLogin } from '@/services/utils'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
@@ -18,8 +19,10 @@ export default {
     handleGoLogin() {
       uni.navigateTo({ url: '/pages/account/login/index' })
     },
-    handleGoAddCars() {
-      uni.navigateTo({ url: '/pages/data-collect/add-car/index' })
+    handleGoMyCars() {
+      if (checkLogin(this.userInfo)) {
+        uni.navigateTo({ url: '/pages/account/my-cars/index' })
+      }
     },
     async handleLogout() {
       const status = await this.$uc.logout()

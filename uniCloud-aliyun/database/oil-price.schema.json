@@ -18,17 +18,17 @@
     },
     "update_year": {
       "title": "油价更新年份",
-      "bsonType": "number",
+      "bsonType": "int",
       "description": "油价更新年份"
     },
     "update_month": {
       "title": "油价更新月份",
-      "bsonType": "number",
+      "bsonType": "int",
       "description": "油价更新月份"
     },
     "update_day": {
       "title": "油价更新日",
-      "bsonType": "number",
+      "bsonType": "int",
       "description": "油价更新日"
     },
     "update_at": {
@@ -66,27 +66,27 @@
           "properties": {
             "0": {
               "title": "0号汽油",
-              "bsonType": "number",
+              "bsonType": "double",
               "description": "0号汽油"
             },
             "89": {
               "title": "89号汽油",
-              "bsonType": "number",
+              "bsonType": "double",
               "description": "89号汽油"
             },
             "92": {
               "title": "92号汽油",
-              "bsonType": "number",
+              "bsonType": "double",
               "description": "92号汽油"
             },
             "95": {
               "title": "95号汽油",
-              "bsonType": "number",
+              "bsonType": "double",
               "description": "95号汽油"
             },
             "98": {
               "title": "98号汽油",
-              "bsonType": "number",
+              "bsonType": "double",
               "description": "98号汽油"
             }
           }
@@ -98,27 +98,27 @@
           "properties": {
             "0": {
               "title": "0号汽油",
-              "bsonType": "number",
+              "bsonType": "double",
               "description": "0号汽油"
             },
             "89": {
               "title": "89号汽油",
-              "bsonType": "number",
+              "bsonType": "double",
               "description": "89号汽油"
             },
             "92": {
               "title": "92号汽油",
-              "bsonType": "number",
+              "bsonType": "double",
               "description": "92号汽油"
             },
             "95": {
               "title": "95号汽油",
-              "bsonType": "number",
+              "bsonType": "double",
               "description": "95号汽油"
             },
             "98": {
               "title": "98号汽油",
-              "bsonType": "number",
+              "bsonType": "double",
               "description": "98号汽油"
             }
           }

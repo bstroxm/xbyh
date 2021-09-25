@@ -1,6 +1,6 @@
 <script>
 import { STORAGE } from './constants/index.js'
-import { mapMutations } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 export default {
   onLaunch: async function () {
     console.log('App Launch')
@@ -13,7 +13,13 @@ export default {
       if (userInfo) {
         this.storeUpdateUserInfo(userInfo)
       }
+
+      if (userInfo.current_car_id) {
+        this.storeUpdateCurrentUserCarId(userInfo.current_car_id)
+      }
     }
+
+    await this.getUserCars()
   },
   onShow: function () {
     console.log('App Show')
@@ -22,7 +28,8 @@ export default {
     console.log('App Hide')
   },
   methods: {
-    ...mapMutations(['storeUpdateUserInfo'])
+    ...mapMutations(['storeUpdateUserInfo', 'storeUpdateCurrentUserCarId']),
+    ...mapActions(['getUserCars'])
   }
 }
 </script>

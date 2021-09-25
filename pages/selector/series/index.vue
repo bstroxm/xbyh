@@ -13,16 +13,16 @@
       />
     </scroll-view>
     <scroll-view @scroll="handleScroll" scroll-y="true" class="index-list-wrapper">
-      <u-index-list v-if="filterSeriesType === 'all'" :scrollTop="scrollTop" :index-list="[]" :offset-top="156">
+      <u-index-list v-if="filterSeriesType === 'all'" :scrollTop="scrollTop" :index-list="[]" :offset-top="indexOffsetTop">
         <view v-for="series in seriesList" :key="series.seriesType">
           <u-index-anchor :use-slot="true">
             <u-divider half-width="240">{{ series.seriesType }}</u-divider>
           </u-index-anchor>
           <view class="list-wrapper" v-for="item in series.list" :key="item._id" @click="handleChooseSeries(item)">
             <view class="list-cell">
-              <u-image width="120rpx" height="120rpx" mode="aspectFit" :src="item.cover_url" @click="handleChooseSeries(item)">
+              <!-- <u-image width="120rpx" height="120rpx" mode="aspectFit" :src="item.cover_url" :lazy-load="true" @click="handleChooseSeries(item)">
                 <u-loading slot="loading"></u-loading>
-              </u-image>
+              </u-image> -->
               <text class="list-cell-text">{{ item.series_name }}</text>
             </view>
           </view>
@@ -31,9 +31,9 @@
       <view v-if="filterSeriesType !== 'all'" class="filter-list-wrapper">
         <view class="list-wrapper" v-for="item in filterSeriesList" :key="item._id" @click="handleChooseSeries(item)">
           <view class="list-cell">
-            <u-image width="120rpx" height="120rpx" mode="aspectFit" :src="item.cover_url" @click="handleChooseSeries(item)">
+            <!-- <u-image width="120rpx" height="120rpx" mode="aspectFit" :src="item.cover_url" :lazy-load="true" @click="handleChooseSeries(item)">
               <u-loading slot="loading"></u-loading>
-            </u-image>
+            </u-image> -->
             <text class="list-cell-text">{{ item.series_name }}</text>
           </view>
         </view>
@@ -115,7 +115,7 @@ page {
     border-bottom: 1px solid #e7e7e7;
     overflow: hidden;
     color: #323233;
-    font-size: 14px;
+    font-size: 28rpx;
     line-height: 120rpx;
 
     .list-cell-text {
