@@ -4,24 +4,27 @@ import pick from 'lodash/pick'
 
 export default {
   data() {
-    const { userCars: storeUserCars, currentUserCarId } = this.$store.state.userCars
-    const userCars = storeUserCars.map(uc => {
-      const baseInfo = pick(uc, ['_id', 'nickname'])
-      const serirsInfo = pick(uc.series, ['series_name', 'cover_url'])
-      const carInfo = pick(uc.car, ['car_name', 'car_year'])
-      return {
-        ...baseInfo,
-        ...serirsInfo,
-        ...carInfo,
-        swipeShow: false
-      }
-    })
+    const { currentUserCarId } = this.$store.state.userCars
+    console.log(this.userCars)
     return {
-      currentCarId: currentUserCarId || userCars[0]?._id || '',
-      userCars
+      currentCarId: currentUserCarId || this.userCars[0]?._id || ''
     }
   },
   computed: {
+    userCars() {
+      const { userCars: storeUserCars } = this.$store.state.userCars
+      return storeUserCars.map(uc => {
+        const baseInfo = pick(uc, ['_id', 'nickname'])
+        const serirsInfo = pick(uc.series, ['series_name', 'cover_url'])
+        const carInfo = pick(uc.car, ['car_name', 'car_year'])
+        return {
+          ...baseInfo,
+          ...serirsInfo,
+          ...carInfo,
+          swipeShow: false
+        }
+      })
+    },
     swipeActions() {
       return [
         {
