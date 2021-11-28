@@ -1,0 +1,14 @@
+{
+  "name": "xbyh",
+  "version": "1.0.0",
+  "description": "xbyh weapp",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bstroxm",
+  "license": "ISC",
+  "dependencies": {
+    "uview-ui": "^1.8.4"
+  }
+}
